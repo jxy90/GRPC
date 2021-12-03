@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package example.second;
+option go_package = "./enumpb";
+
+
+message EnumMessage{
+  int32 id = 1;
+  Gender gender = 2;
+}
+
+
+
+//枚举
+enum Gender{
+  //别名
+  option allow_alias = true;
+  NOT_SPECIFIED = 0;
+  FEMALE = 1;
+  MALE = 2;
+  WOMAN = 1;
+  MAN = 2;
+  //保留
+  reserved 9, 10, 20 to 100, 200 to max;
+  reserved "BOY", "GIRL";
+}
