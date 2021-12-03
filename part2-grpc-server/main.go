@@ -17,7 +17,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
-	creds, err := credentials.NewServerTLSFromFile("cert.pem", "key.pem")
+	creds, err := credentials.NewServerTLSFromFile("X509/cert.pem", "X509/key.pem")
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
