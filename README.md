@@ -1,4 +1,6 @@
 # GRPC
+- 参考
+  - https://www.bilibili.com/video/BV1eE411T7GC?p=18
 - part1-protobuf 
   - 使用grpc
     - protoc --csharp_out=csharp *.proto
