@@ -448,6 +448,124 @@ func (x *EmployeeRequest) GetEmployee() *Employee {
 	return nil
 }
 
+type TokenRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Username string `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+}
+
+func (x *TokenRequest) Reset() {
+	*x = TokenRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_messages_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TokenRequest) ProtoMessage() {}
+
+func (x *TokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_messages_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TokenRequest.ProtoReflect.Descriptor instead.
+func (*TokenRequest) Descriptor() ([]byte, []int) {
+	return file_messages_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *TokenRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *TokenRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type TokenResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Token      string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	Expiration *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expiration,proto3" json:"expiration,omitempty"`
+	Success    bool                   `protobuf:"varint,3,opt,name=success,proto3" json:"success,omitempty"`
+}
+
+func (x *TokenResponse) Reset() {
+	*x = TokenResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_messages_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TokenResponse) ProtoMessage() {}
+
+func (x *TokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_messages_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TokenResponse.ProtoReflect.Descriptor instead.
+func (*TokenResponse) Descriptor() ([]byte, []int) {
+	return file_messages_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *TokenResponse) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+func (x *TokenResponse) GetExpiration() *timestamppb.Timestamp {
+	if x != nil {
+		return x.Expiration
+	}
+	return nil
+}
+
+func (x *TokenResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
 var File_messages_proto protoreflect.FileDescriptor
 
 var file_messages_proto_rawDesc = []byte{
@@ -490,25 +608,40 @@ var file_messages_proto_rawDesc = []byte{
 	0x69, 0x73, 0x4f, 0x4b, 0x22, 0x38, 0x0a, 0x0f, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x08, 0x65, 0x6d, 0x70, 0x6c, 0x6f,
 	0x79, 0x65, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x09, 0x2e, 0x45, 0x6d, 0x70, 0x6c,
-	0x6f, 0x79, 0x65, 0x65, 0x52, 0x08, 0x65, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x32, 0x81,
-	0x02, 0x0a, 0x0f, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x12, 0x2d, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x42, 0x79, 0x4e, 0x6f, 0x12, 0x0f, 0x2e,
-	0x47, 0x65, 0x74, 0x42, 0x79, 0x4e, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11,
-	0x2e, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x2d, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x12, 0x0e, 0x2e, 0x47, 0x65,
-	0x74, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x45, 0x6d,
-	0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x30, 0x01,
-	0x12, 0x2f, 0x0a, 0x08, 0x41, 0x64, 0x64, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x12, 0x10, 0x2e, 0x41,
-	0x64, 0x64, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11,
-	0x2e, 0x41, 0x64, 0x64, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x2b, 0x0a, 0x04, 0x53, 0x61, 0x76, 0x65, 0x12, 0x10, 0x2e, 0x45, 0x6d, 0x70, 0x6c,
-	0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x45, 0x6d,
-	0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32,
-	0x0a, 0x07, 0x53, 0x61, 0x76, 0x65, 0x41, 0x6c, 0x6c, 0x12, 0x10, 0x2e, 0x45, 0x6d, 0x70, 0x6c,
-	0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x45, 0x6d,
-	0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x28, 0x01,
-	0x30, 0x01, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x6f, 0x79, 0x65, 0x65, 0x52, 0x08, 0x65, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x22, 0x46,
+	0x0a, 0x0c, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a,
+	0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61,
+	0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61,
+	0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22, 0x7b, 0x0a, 0x0d, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x3a, 0x0a,
+	0x0a, 0x65, 0x78, 0x70, 0x69, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0a, 0x65,
+	0x78, 0x70, 0x69, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63,
+	0x63, 0x65, 0x73, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63,
+	0x65, 0x73, 0x73, 0x32, 0xb1, 0x02, 0x0a, 0x0f, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65,
+	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x2d, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x42, 0x79,
+	0x4e, 0x6f, 0x12, 0x0f, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x4e, 0x6f, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2d, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c,
+	0x12, 0x0e, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x11, 0x2e, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x30, 0x01, 0x12, 0x31, 0x0a, 0x08, 0x41, 0x64, 0x64, 0x50, 0x68, 0x6f, 0x74,
+	0x6f, 0x12, 0x10, 0x2e, 0x41, 0x64, 0x64, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x41, 0x64, 0x64, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x28, 0x01, 0x12, 0x2b, 0x0a, 0x04, 0x53, 0x61, 0x76, 0x65,
+	0x12, 0x10, 0x2e, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x11, 0x2e, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x07, 0x53, 0x61, 0x76, 0x65, 0x41, 0x6c, 0x6c,
+	0x12, 0x10, 0x2e, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x11, 0x2e, 0x45, 0x6d, 0x70, 0x6c, 0x6f, 0x79, 0x65, 0x65, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x28, 0x01, 0x30, 0x01, 0x12, 0x2c, 0x0a, 0x0b, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x0d, 0x2e, 0x54, 0x6f, 0x6b, 0x65, 0x6e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0e, 0x2e, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -523,7 +656,7 @@ func file_messages_proto_rawDescGZIP() []byte {
 	return file_messages_proto_rawDescData
 }
 
-var file_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_messages_proto_goTypes = []interface{}{
 	(*Employee)(nil),              // 0: Employee
 	(*MouthSalary)(nil),           // 1: MouthSalary
@@ -533,30 +666,35 @@ var file_messages_proto_goTypes = []interface{}{
 	(*AddPhotoRequest)(nil),       // 5: AddPhotoRequest
 	(*AddPhotoResponse)(nil),      // 6: AddPhotoResponse
 	(*EmployeeRequest)(nil),       // 7: EmployeeRequest
-	(EmployeeStatus)(0),           // 8: EmployeeStatus
-	(*timestamppb.Timestamp)(nil), // 9: google.protobuf.Timestamp
+	(*TokenRequest)(nil),          // 8: TokenRequest
+	(*TokenResponse)(nil),         // 9: TokenResponse
+	(EmployeeStatus)(0),           // 10: EmployeeStatus
+	(*timestamppb.Timestamp)(nil), // 11: google.protobuf.Timestamp
 }
 var file_messages_proto_depIdxs = []int32{
 	1,  // 0: Employee.mouthSalary:type_name -> MouthSalary
-	8,  // 1: Employee.status:type_name -> EmployeeStatus
-	9,  // 2: Employee.lastModified:type_name -> google.protobuf.Timestamp
+	10, // 1: Employee.status:type_name -> EmployeeStatus
+	11, // 2: Employee.lastModified:type_name -> google.protobuf.Timestamp
 	0,  // 3: EmployeeResponse.employee:type_name -> Employee
 	0,  // 4: EmployeeRequest.employee:type_name -> Employee
-	2,  // 5: EmployeeService.GetByNo:input_type -> GetByNoRequest
-	4,  // 6: EmployeeService.GetAll:input_type -> GetAllRequest
-	5,  // 7: EmployeeService.AddPhoto:input_type -> AddPhotoRequest
-	7,  // 8: EmployeeService.Save:input_type -> EmployeeRequest
-	7,  // 9: EmployeeService.SaveAll:input_type -> EmployeeRequest
-	3,  // 10: EmployeeService.GetByNo:output_type -> EmployeeResponse
-	3,  // 11: EmployeeService.GetAll:output_type -> EmployeeResponse
-	6,  // 12: EmployeeService.AddPhoto:output_type -> AddPhotoResponse
-	3,  // 13: EmployeeService.Save:output_type -> EmployeeResponse
-	3,  // 14: EmployeeService.SaveAll:output_type -> EmployeeResponse
-	10, // [10:15] is the sub-list for method output_type
-	5,  // [5:10] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	11, // 5: TokenResponse.expiration:type_name -> google.protobuf.Timestamp
+	2,  // 6: EmployeeService.GetByNo:input_type -> GetByNoRequest
+	4,  // 7: EmployeeService.GetAll:input_type -> GetAllRequest
+	5,  // 8: EmployeeService.AddPhoto:input_type -> AddPhotoRequest
+	7,  // 9: EmployeeService.Save:input_type -> EmployeeRequest
+	7,  // 10: EmployeeService.SaveAll:input_type -> EmployeeRequest
+	8,  // 11: EmployeeService.CreateToken:input_type -> TokenRequest
+	3,  // 12: EmployeeService.GetByNo:output_type -> EmployeeResponse
+	3,  // 13: EmployeeService.GetAll:output_type -> EmployeeResponse
+	6,  // 14: EmployeeService.AddPhoto:output_type -> AddPhotoResponse
+	3,  // 15: EmployeeService.Save:output_type -> EmployeeResponse
+	3,  // 16: EmployeeService.SaveAll:output_type -> EmployeeResponse
+	9,  // 17: EmployeeService.CreateToken:output_type -> TokenResponse
+	12, // [12:18] is the sub-list for method output_type
+	6,  // [6:12] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_messages_proto_init() }
@@ -662,6 +800,30 @@ func file_messages_proto_init() {
 				return nil
 			}
 		}
+		file_messages_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TokenRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_messages_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TokenResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -669,7 +831,7 @@ func file_messages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_messages_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -697,9 +859,10 @@ const _ = grpc.SupportPackageIsVersion6
 type EmployeeServiceClient interface {
 	GetByNo(ctx context.Context, in *GetByNoRequest, opts ...grpc.CallOption) (*EmployeeResponse, error)
 	GetAll(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (EmployeeService_GetAllClient, error)
-	AddPhoto(ctx context.Context, in *AddPhotoRequest, opts ...grpc.CallOption) (*AddPhotoResponse, error)
+	AddPhoto(ctx context.Context, opts ...grpc.CallOption) (EmployeeService_AddPhotoClient, error)
 	Save(ctx context.Context, in *EmployeeRequest, opts ...grpc.CallOption) (*EmployeeResponse, error)
 	SaveAll(ctx context.Context, opts ...grpc.CallOption) (EmployeeService_SaveAllClient, error)
+	CreateToken(ctx context.Context, in *TokenRequest, opts ...grpc.CallOption) (*TokenResponse, error)
 }
 
 type employeeServiceClient struct {
@@ -751,13 +914,38 @@ func (x *employeeServiceGetAllClient) Recv() (*EmployeeResponse, error) {
 	return m, nil
 }
 
-func (c *employeeServiceClient) AddPhoto(ctx context.Context, in *AddPhotoRequest, opts ...grpc.CallOption) (*AddPhotoResponse, error) {
-	out := new(AddPhotoResponse)
-	err := c.cc.Invoke(ctx, "/EmployeeService/AddPhoto", in, out, opts...)
+func (c *employeeServiceClient) AddPhoto(ctx context.Context, opts ...grpc.CallOption) (EmployeeService_AddPhotoClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_EmployeeService_serviceDesc.Streams[1], "/EmployeeService/AddPhoto", opts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &employeeServiceAddPhotoClient{stream}
+	return x, nil
+}
+
+type EmployeeService_AddPhotoClient interface {
+	Send(*AddPhotoRequest) error
+	CloseAndRecv() (*AddPhotoResponse, error)
+	grpc.ClientStream
+}
+
+type employeeServiceAddPhotoClient struct {
+	grpc.ClientStream
+}
+
+func (x *employeeServiceAddPhotoClient) Send(m *AddPhotoRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *employeeServiceAddPhotoClient) CloseAndRecv() (*AddPhotoResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(AddPhotoResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 func (c *employeeServiceClient) Save(ctx context.Context, in *EmployeeRequest, opts ...grpc.CallOption) (*EmployeeResponse, error) {
@@ -770,7 +958,7 @@ func (c *employeeServiceClient) Save(ctx context.Context, in *EmployeeRequest, o
 }
 
 func (c *employeeServiceClient) SaveAll(ctx context.Context, opts ...grpc.CallOption) (EmployeeService_SaveAllClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_EmployeeService_serviceDesc.Streams[1], "/EmployeeService/SaveAll", opts...)
+	stream, err := c.cc.NewStream(ctx, &_EmployeeService_serviceDesc.Streams[2], "/EmployeeService/SaveAll", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -800,13 +988,23 @@ func (x *employeeServiceSaveAllClient) Recv() (*EmployeeResponse, error) {
 	return m, nil
 }
 
+func (c *employeeServiceClient) CreateToken(ctx context.Context, in *TokenRequest, opts ...grpc.CallOption) (*TokenResponse, error) {
+	out := new(TokenResponse)
+	err := c.cc.Invoke(ctx, "/EmployeeService/CreateToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // EmployeeServiceServer is the server API for EmployeeService service.
 type EmployeeServiceServer interface {
 	GetByNo(context.Context, *GetByNoRequest) (*EmployeeResponse, error)
 	GetAll(*GetAllRequest, EmployeeService_GetAllServer) error
-	AddPhoto(context.Context, *AddPhotoRequest) (*AddPhotoResponse, error)
+	AddPhoto(EmployeeService_AddPhotoServer) error
 	Save(context.Context, *EmployeeRequest) (*EmployeeResponse, error)
 	SaveAll(EmployeeService_SaveAllServer) error
+	CreateToken(context.Context, *TokenRequest) (*TokenResponse, error)
 }
 
 // UnimplementedEmployeeServiceServer can be embedded to have forward compatible implementations.
@@ -819,14 +1017,17 @@ func (*UnimplementedEmployeeServiceServer) GetByNo(context.Context, *GetByNoRequ
 func (*UnimplementedEmployeeServiceServer) GetAll(*GetAllRequest, EmployeeService_GetAllServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetAll not implemented")
 }
-func (*UnimplementedEmployeeServiceServer) AddPhoto(context.Context, *AddPhotoRequest) (*AddPhotoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AddPhoto not implemented")
+func (*UnimplementedEmployeeServiceServer) AddPhoto(EmployeeService_AddPhotoServer) error {
+	return status.Errorf(codes.Unimplemented, "method AddPhoto not implemented")
 }
 func (*UnimplementedEmployeeServiceServer) Save(context.Context, *EmployeeRequest) (*EmployeeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Save not implemented")
 }
 func (*UnimplementedEmployeeServiceServer) SaveAll(EmployeeService_SaveAllServer) error {
 	return status.Errorf(codes.Unimplemented, "method SaveAll not implemented")
+}
+func (*UnimplementedEmployeeServiceServer) CreateToken(context.Context, *TokenRequest) (*TokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateToken not implemented")
 }
 
 func RegisterEmployeeServiceServer(s *grpc.Server, srv EmployeeServiceServer) {
@@ -872,22 +1073,30 @@ func (x *employeeServiceGetAllServer) Send(m *EmployeeResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _EmployeeService_AddPhoto_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPhotoRequest)
-	if err := dec(in); err != nil {
+func _EmployeeService_AddPhoto_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(EmployeeServiceServer).AddPhoto(&employeeServiceAddPhotoServer{stream})
+}
+
+type EmployeeService_AddPhotoServer interface {
+	SendAndClose(*AddPhotoResponse) error
+	Recv() (*AddPhotoRequest, error)
+	grpc.ServerStream
+}
+
+type employeeServiceAddPhotoServer struct {
+	grpc.ServerStream
+}
+
+func (x *employeeServiceAddPhotoServer) SendAndClose(m *AddPhotoResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *employeeServiceAddPhotoServer) Recv() (*AddPhotoRequest, error) {
+	m := new(AddPhotoRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
-	if interceptor == nil {
-		return srv.(EmployeeServiceServer).AddPhoto(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/EmployeeService/AddPhoto",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EmployeeServiceServer).AddPhoto(ctx, req.(*AddPhotoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
+	return m, nil
 }
 
 func _EmployeeService_Save_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -934,6 +1143,24 @@ func (x *employeeServiceSaveAllServer) Recv() (*EmployeeRequest, error) {
 	return m, nil
 }
 
+func _EmployeeService_CreateToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EmployeeServiceServer).CreateToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/EmployeeService/CreateToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EmployeeServiceServer).CreateToken(ctx, req.(*TokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _EmployeeService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "EmployeeService",
 	HandlerType: (*EmployeeServiceServer)(nil),
@@ -943,12 +1170,12 @@ var _EmployeeService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _EmployeeService_GetByNo_Handler,
 		},
 		{
-			MethodName: "AddPhoto",
-			Handler:    _EmployeeService_AddPhoto_Handler,
-		},
-		{
 			MethodName: "Save",
 			Handler:    _EmployeeService_Save_Handler,
+		},
+		{
+			MethodName: "CreateToken",
+			Handler:    _EmployeeService_CreateToken_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
@@ -956,6 +1183,11 @@ var _EmployeeService_serviceDesc = grpc.ServiceDesc{
 			StreamName:    "GetAll",
 			Handler:       _EmployeeService_GetAll_Handler,
 			ServerStreams: true,
+		},
+		{
+			StreamName:    "AddPhoto",
+			Handler:       _EmployeeService_AddPhoto_Handler,
+			ClientStreams: true,
 		},
 		{
 			StreamName:    "SaveAll",
